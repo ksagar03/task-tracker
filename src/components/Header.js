@@ -1,14 +1,17 @@
+
+// rafce-> is a snipets which is used to create a function
 import PropTypes from "prop-types";
 
-const Header = (props) => {
+const Header = ({title}) => {
   return (
     <header>
-      <h1>{props.title}</h1>
+      <h1 className="header">{title}</h1>
+      <button className="btn">add</button>
     </header>
-  );
-};
+  )
+}
 Header.defaultProps = {
-  title: "task-track"
+  title: "task-track",
   // a: "1"
 };
 Header.propTypes = {
