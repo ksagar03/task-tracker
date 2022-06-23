@@ -1,12 +1,16 @@
 
 // rafce-> is a snipets which is used to create a function
 import PropTypes from "prop-types";
-
+import Button from "./Button";
 const Header = ({title}) => {
+  const onClick =() =>{
+    return console.log("onclick function is working")
+  }
   return (
     <header>
       <h1 className="header">{title}</h1>
-      <button className="btn">add</button>
+      
+      <Button onclick={onClick} color="green" text="app" />
     </header>
   )
 }
