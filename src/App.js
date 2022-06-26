@@ -1,8 +1,27 @@
 // import logo from './logo.svg';
-
+import { useState } from "react";
 import Header from "./Components/Header";
+import Tasks from "./Components/Tasks";
 
 function App() {
+  
+  const [task,settask] =useState([{id:1,
+    text:"waking up at morning",
+    day:"10th june at 05:00AM",
+    Reminder:true},
+    {id:2,
+     text:"shopping",
+     day:"11th june at 10:00AM",
+     Reminder:true},
+     {id:3,
+        text:"cleaning",
+        day:"12th june at 05:00PM",
+        Reminder:false},])
+
+
+
+
+
   // const a = "sagar";
   return (
     <div className="App">
@@ -10,6 +29,8 @@ function App() {
       <Header title="Task-tracker" />
       {/* if we won't define any properties then header container will take 
 defaultpropes  */}
+
+      <Tasks task={task} />
     </div>
   );
 }
