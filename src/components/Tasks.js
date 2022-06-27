@@ -11,10 +11,10 @@ import Task from './Task'
 // (in function defined).
 // therefore to overcome this situation we use hooks to re-render and to change data 
 //  there are several hooks which comes in handy in react 
-const Tasks = ({task}) => {
+const Tasks = ({task,onDelete}) => {
   return (
     <>
-      {task.map((task)=>(<Task key={task.id} task={task} />
+      {task.map((task)=>(<Task key={task.id} task={task} onDelete={onDelete} />
         ))}
     </>
   )
