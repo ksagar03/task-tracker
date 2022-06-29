@@ -1,30 +1,35 @@
 // import logo from './logo.svg';
 import { useState } from "react";
-import Header from "./Components/Header";
-import Tasks from "./Components/Tasks";
+import Header from "./components/Header";
+import Tasks from "./components/Tasks";
 
 function App() {
-  
-  const [task,setTask] =useState([{id:1,
-    text:"waking up at morning",
-    day:"10th june at 05:00AM",
-    Reminder:true},
-    {id:2,
-     text:"shopping",
-     day:"11th june at 10:00AM",
-     Reminder:true},
-     {id:3,
-        text:"cleaning",
-        day:"12th june at 05:00PM",
-        Reminder:false},])
+  const [task, setTask] = useState([
+    {
+      id: 1,
+      text: "waking up at morning",
+      day: "10th june at 05:00AM",
+      Reminder: true
+    },
+    { id: 2, text: "shopping", day: "11th june at 10:00AM", Reminder: true },
+    { id: 3, text: "cleaning", day: "12th june at 05:00PM", Reminder: false }
+  ]);
 
-// now let us write a code to delete task(here we are just filtering it out the non deleted task)
-// Delete Task
-const DeleteTask =(id)=> {
-  setTask(task.filter((task) => task.id !== id))
-}
+  // now let us write a code to delete task(here we are just filtering it out the non deleted task)
+  // Delete Task
+  const DeleteTask = (id) => {
+    setTask(task.filter((task) => task.id !== id));
+  };
 
-
+  // creating reminder notification
+  const onReminder = (id) => {
+    //  console.log('reminder is working',id)
+    setTask(
+      task.map((task) =>
+        task.id === id ? { ...task, Reminder: !task.Reminder } : task
+      )
+    );
+  };
 
   // const a = "sagar";
   return (
@@ -34,7 +39,11 @@ const DeleteTask =(id)=> {
       {/* if we won't define any properties then header container will take 
 defaultpropes  */}
 
-      {task.length> 0 ?<Tasks task={task} onDelete={DeleteTask} />:"Create new task"}
+      {task.length > 0 ? (
+        <Tasks task={task} onDelete={DeleteTask} onreminder={onReminder} />
+      ) : (
+        "Create new task"
+      )}
     </div>
     // In above we have created ternary statement which will work as single line condition statement
     // that shows "create new task when there is no task created"
