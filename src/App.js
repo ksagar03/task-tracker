@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import Taskform from "./components/Taskform";
 
 function App() {
   const [task, setTask] = useState([
@@ -9,7 +10,7 @@ function App() {
       id: 1,
       text: "waking up at morning",
       day: "10th june at 05:00AM",
-      Reminder: true
+      Reminder: false
     },
     { id: 2, text: "shopping", day: "11th june at 10:00AM", Reminder: true },
     { id: 3, text: "cleaning", day: "12th june at 05:00PM", Reminder: false }
@@ -38,6 +39,7 @@ function App() {
       <Header title="Task-tracker" />
       {/* if we won't define any properties then header container will take 
 defaultpropes  */}
+      <Taskform />
 
       {task.length > 0 ? (
         <Tasks task={task} onDelete={DeleteTask} onreminder={onReminder} />
