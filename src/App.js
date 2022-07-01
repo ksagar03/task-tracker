@@ -5,7 +5,7 @@ import Tasks from "./components/Tasks";
 import Taskform from "./components/Taskform";
 
 function App() {
-  const [task, setTask] = useState([
+  const [tasks, setTasks] = useState([
     {
       id: 1,
       text: "waking up at morning",
@@ -16,17 +16,29 @@ function App() {
     { id: 3, text: "cleaning", day: "12th june at 05:00PM", Reminder: false }
   ]);
 
+  //  creating function to save task
+  // SAVE TASK
+
+  const savetask = (task) => {
+    const id = Math.floor(Math.random() * 100) + 1; // this line will return
+    // numbers 1-100
+    const newTask = { id, ...task };
+    // here '...task' is a spread operator which includes all the value
+    // of that array task
+    setTasks([...tasks, newTask]);
+  };
+
   // now let us write a code to delete task(here we are just filtering it out the non deleted task)
   // Delete Task
   const DeleteTask = (id) => {
-    setTask(task.filter((task) => task.id !== id));
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   // creating reminder notification
   const onReminder = (id) => {
     //  console.log('reminder is working',id)
-    setTask(
-      task.map((task) =>
+    setTasks(
+      tasks.map((task) =>
         task.id === id ? { ...task, Reminder: !task.Reminder } : task
       )
     );
@@ -39,10 +51,10 @@ function App() {
       <Header title="Task-tracker" />
       {/* if we won't define any properties then header container will take 
 defaultpropes  */}
-      <Taskform />
+      <Taskform toaddtask={savetask} />
 
-      {task.length > 0 ? (
-        <Tasks task={task} onDelete={DeleteTask} onreminder={onReminder} />
+      {tasks.length > 0 ? (
+        <Tasks task={tasks} onDelete={DeleteTask} onreminder={onReminder} />
       ) : (
         "Create new task"
       )}
