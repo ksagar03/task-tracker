@@ -2,7 +2,7 @@ import { useState } from "react";
 const Taskform = ({ toaddtask }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
-  const [reminder, setReminder] = useState(false);
+  const [Reminder, setReminder] = useState(false);
   // here we are setting use state of reminder as false by default
   const onSubmit = (e) => {
     e.preventDefault(); // this line will prevent submitting(saveing)
@@ -16,7 +16,7 @@ const Taskform = ({ toaddtask }) => {
       alert("please add day and time");
       return;
     }
-    toaddtask({ text, day, reminder });
+    toaddtask({ text, day, Reminder });
     setText("");
     setDay("");
     setReminder(false);
@@ -44,9 +44,9 @@ const Taskform = ({ toaddtask }) => {
       <div className="form-control form-control-check">
         <label>Set reminder</label>
         <input
-          checked={reminder}
           type="checkbox"
-          value={reminder}
+          checked={Reminder}
+          value={Reminder}
           onChange={(e) => setReminder(e.currentTarget.checked)}
         />
       </div>

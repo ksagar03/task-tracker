@@ -1,10 +1,12 @@
 // import logo from './logo.svg';
 import { useState } from "react";
-import Header from "./components/Header";
-import Tasks from "./components/Tasks";
-import Taskform from "./components/Taskform";
+import Header from "./Components/Header";
+import Tasks from "./Components/Tasks";
+import Taskform from "./Components/Taskform";
 
 function App() {
+  const [addbtn,setAddbtn]= useState(true)
+  //  this above useState is used to add a functionality to the Add button 
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -48,11 +50,13 @@ function App() {
   return (
     <div className="App">
       {/* <h1 style={{color:'royalblue'}}>Hello this is {a}</h1> */}
-      <Header title="Task-tracker" />
+      <Header title="Task-tracker"  onclickAdd={( )=> setAddbtn(!addbtn)  } addbtnvalue={addbtn}/>
       {/* if we won't define any properties then header container will take 
 defaultpropes  */}
-      <Taskform toaddtask={savetask} />
-
+{ addbtn && <Taskform toaddtask={savetask} />
+}
+{/* this taskform will only show when when we click on 'Add' btn 
+      note: we are using binary operation to toggle */}
       {tasks.length > 0 ? (
         <Tasks task={tasks} onDelete={DeleteTask} onreminder={onReminder} />
       ) : (
