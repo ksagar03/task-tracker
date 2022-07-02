@@ -71,3 +71,36 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 we are using react-icons(for delete icons etc..)
+
+
+### "npm run build" :
+        is used to create a optimized production build which can be used while production.
+
+        After running above code, bulid folder will be created which can sent for porduction
+        (note: we can delete all the other folder which will not affect production foler   ) 
+
+
+    We can also use local server to run build
+        to run the build in some other server 1st we need to install 
+### "npm install -g serve" 
+        next we need to define the port on which it need to run (eg. port 6000,8000 etc other than 
+        port 3000(because this port is used as a default when we run "npm start" ))
+### to set port- "serve -s build -p 8000"
+
+
+
+Now we are using fake backend server to manuplate the data(i.e push,get,post,delete(crud operation))
+to create a fake backend server we need install
+            1. npm -i json-server
+            2. create dependency(if not created) "json-server":"^0.16.3"
+            3. next create new script: 
+#           "server": "json-server --watch db.json --port 5000"
+            (this will create db.json file which will run on localhost 5000 )
+                so now we need to link localhost 5000 to main localhost 3000
+            in this db.json we will save the database so that we can perform CRUD operation
+            and we will fetch the data from that server to localhost 3000.
+
+(note: !important
+    In json we use ("") to reprasent  key eg: "text": "waking up at morning"
+ # parse is used to convert json data to objects
+ )

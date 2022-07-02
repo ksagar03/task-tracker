@@ -1,0 +1,18 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "waking up at morning",
+      "day": "10th june at 05:00AM",
+      "Reminder": false
+    },
+    { "id": 2, 
+      "text": "shopping",
+      "day": "11th june at 10:00AM", 
+      "Reminder": true },
+    { "id": 3, 
+      "text": "cleaning", 
+      "day": "12th june at 05:00PM", 
+      "Reminder": false }
+  ]
+}
