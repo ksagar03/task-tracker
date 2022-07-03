@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./Components/Header";
 import Tasks from "./Components/Tasks";
 import Taskform from "./Components/Taskform";
@@ -7,16 +7,30 @@ import Taskform from "./Components/Taskform";
 function App() {
   const [addbtn,setAddbtn]= useState(true)
   //  this above useState is used to add a functionality to the Add button 
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      text: "waking up at morning",
-      day: "10th june at 05:00AM",
-      Reminder: false
-    },
-    { id: 2, text: "shopping", day: "11th june at 10:00AM", Reminder: true },
-    { id: 3, text: "cleaning", day: "12th june at 05:00PM", Reminder: false }
-  ]);
+  const [tasks, setTasks] = useState([]);
+
+  // CRUD OPERATIONS
+  // to fetch data from another server
+  useEffect(() => {
+      const getData = async() =>{
+        const getDatafromserver= await fetchdata()
+        setTasks(getDatafromserver)
+      }
+      getData()
+    } 
+   
+  ,[])
+
+  const fetchdata = async() =>{
+    const res = await fetch('http://localhost:5000/tasks')
+    const data= await res.json()
+     /*await-> it is an operator which waits for the promise this operator can only be used in 
+      async function.
+      async makes a function return a Promise
+      await makes a function wait for a Promise */
+      return data
+    }
+
 
   //  creating function to save task
   // SAVE TASK
@@ -32,7 +46,10 @@ function App() {
 
   // now let us write a code to delete task(here we are just filtering it out the non deleted task)
   // Delete Task
-  const DeleteTask = (id) => {
+  // to delete the task from server i.e from db.json file
+  const DeleteTask = async (id) => {
+    await fetch(`http://localhost:5000/tasks/${id}`,
+    {method : 'DELETE'})
     setTasks(tasks.filter((task) => task.id !== id));
   };
 

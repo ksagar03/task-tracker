@@ -104,3 +104,9 @@ to create a fake backend server we need install
     In json we use ("") to reprasent  key eg: "text": "waking up at morning"
  # parse is used to convert json data to objects
  )
+ 
+ # To load data from other server to main server
+    1. we need to fetch data from other server which can be done using hooks
+    2. Here in this we are using useEffect(hook)
+    3. useEffect-> this hook help us to perform userdefined action whenever a page is loaded or     rendered 
+    4. 
