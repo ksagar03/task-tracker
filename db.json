@@ -5,6 +5,18 @@
       "text": "shopping",
       "day": "11th june at 10:00AM",
       "Reminder": true
+    },
+    {
+      "text": "Watching movie",
+      "day": "7th July at 04:00PM",
+      "Reminder": true,
+      "id": 3
+    },
+    {
+      "text": "Waking up early morning.",
+      "day": "5th July at 05:00AM",
+      "Reminder": true,
+      "id": 4
     }
   ]
 }

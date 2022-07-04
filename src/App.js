@@ -80,7 +80,7 @@ function App() {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  // creating reminder notification
+  // creating reminder notification and updating(db.json) reminder value on toggleing 
   const onReminder = async (id) => {
     //  console.log('reminder is working',id)
     const onremindertask= await fetchsingledata(id)
