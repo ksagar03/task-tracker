@@ -1,8 +1,11 @@
 // import logo from './logo.svg';
 import { useState, useEffect } from "react";
+ import {BrowserRouter as Routing, Route, Routes} from "react-router-dom"
 import Header from "./Components/Header";
 import Tasks from "./Components/Tasks";
 import Taskform from "./Components/Taskform";
+import Footer from "./Components/Footer";
+import About from "./Components/About";
 
 function App() {
   const [addbtn,setAddbtn]= useState(true)
@@ -104,24 +107,36 @@ function App() {
 
   // const a = "sagar";
   return (
-    <div className="App">
+   <Routing>
+    <div className="container">
       {/* <h1 style={{color:'royalblue'}}>Hello this is {a}</h1> */}
       <Header title="Task-tracker"  onclickAdd={( )=> setAddbtn(!addbtn)  } addbtnvalue={addbtn}/>
       {/* if we won't define any properties then header container will take 
-defaultpropes  */}
-{ addbtn && <Taskform toaddtask={savetask} />
-}
-{/* this taskform will only show when when we click on 'Add' btn 
+      defaultpropes  */}
+      <Routes>
+      <Route path="/" element={
+        <>
+        { addbtn && <Taskform toaddtask={savetask} />
+      } 
+      {/* this taskform will only show when when we click on 'Add' btn 
       note: we are using binary operation to toggle */}
       {tasks.length > 0 ? (
         <Tasks task={tasks} onDelete={DeleteTask} onreminder={onReminder} />
       ) : (
         "Create new task"
       )}
+      </>
+      } />
+      <Route path="/about" element={<About />} />
+      </Routes>
+      <Footer />
     </div>
+  </Routing>
     // In above we have created ternary statement which will work as single line condition statement
     // that shows "create new task when there is no task created"
   );
+
+
 }
 // there are 3 ways to define the style for the tag
 // 1. defining style inside the tag

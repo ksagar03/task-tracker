@@ -15,8 +15,14 @@
     {
       "text": "Waking up early morning.",
       "day": "5th July at 05:00AM",
-      "Reminder": true,
+      "Reminder": false,
       "id": 4
+    },
+    {
+      "text": "Preparing for python exam",
+      "day": "Next month 2nd week",
+      "Reminder": true,
+      "id": 5
     }
   ]
 }

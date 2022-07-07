@@ -109,4 +109,11 @@ to create a fake backend server we need install
     1. we need to fetch data from other server which can be done using hooks
     2. Here in this we are using useEffect(hook)
     3. useEffect-> this hook help us to perform userdefined action whenever a page is loaded or     rendered 
-    4. 
+
+# router function of react
+    1. To use react router we need to install react-route-dom
+    2. router helps us to build a single page application where we can render other html page in a single page( for eg. if we want to bring login page in a same web page without reloading the whole page we use router)
+    3. there are sevral attributes in react-route-dom
+        1. Link- this is used to add or specify a link
+        2. browseroute and Route and Routes
+     (note: still learning about route )
