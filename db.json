@@ -1,28 +1,10 @@
 {
   "tasks": [
     {
-      "id": 2,
-      "text": "shopping",
-      "day": "11th june at 10:00AM",
-      "Reminder": true
-    },
-    {
-      "text": "Watching movie",
-      "day": "7th July at 04:00PM",
+      "text": "to code atleast 5 problems in leetcode",
+      "day": "30th Oct at 7:00AM",
       "Reminder": true,
-      "id": 3
-    },
-    {
-      "text": "Waking up early morning.",
-      "day": "5th July at 05:00AM",
-      "Reminder": false,
-      "id": 4
-    },
-    {
-      "text": "Preparing for python exam",
-      "day": "Next month 2nd week",
-      "Reminder": true,
-      "id": 5
+      "id": 6
     }
   ]
 }

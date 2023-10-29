@@ -1,0 +1,27 @@
+Hooks: Hooks are the function which lets us to hook into react state and lifecycle feature.
+ Hooks allow you to reuse stateful logic without changing your component hierarchy.
+(i.e it is easy to share hooks with many other components.)
+
+(note: we can also create our own hooks)
+
+
+Rules of Hooks:
+	1. we can't call hooks inside loops,conditions and nested function.
+	2. Only call Hooks from React function components. Don’t call Hooks from regular
+	   JavaScript functions.
+
+	
+
+useState:
+ Syntax: const [count, setcount]= useState([])
+	 here we are defining two variables 
+		1. count -> this varibale is used to store the current state value
+		2. setcount -> this variable acts as a function which lets us to update the current state value to new value.
+
+useEffect: 
+	useEffects adds an ability to perform side effect from a function components 
+it is used to perform data fetching from the server and also used to make change in DOM react components.
+
+To use useEffect in react we make a function call(useEffect())
+When you call useEffect, you’re telling React to run your “effect” 
+function after flushing changes to the DOM.

@@ -11,7 +11,7 @@ function App() {
   const [addbtn,setAddbtn]= useState(true)
   //  this above useState is used to add a functionality to the Add button 
   const [tasks, setTasks] = useState([]);
-
+// to create a useState we use above syntax 
   // CRUD OPERATIONS
   // to fetch data from another server
   useEffect(() => {
@@ -27,7 +27,7 @@ function App() {
   const fetchdata = async() =>{
     const res = await fetch('http://localhost:5000/tasks')
     const data= await res.json()
-     /*await-> it is an operator which waits for the promise this operator can only be used in 
+     /*await-> it is an operator which waits for the promise, this operator can only be used in 
       async function.
       async makes a function return a Promise
       await makes a function wait for a Promise */
@@ -108,7 +108,7 @@ function App() {
   // const a = "sagar";
   return (
    <Routing>
-    <div className="container">
+     <div className="container"> {/* CSS is defined using this class name*/}
       {/* <h1 style={{color:'royalblue'}}>Hello this is {a}</h1> */}
       <Header title="Task-tracker"  onclickAdd={( )=> setAddbtn(!addbtn)  } addbtnvalue={addbtn}/>
       {/* if we won't define any properties then header container will take 
